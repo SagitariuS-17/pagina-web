@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maryoris Trilleras | Web Site</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    .header {
+      background: #f8f8f8;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #c95a8c;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .nav a:hover {
+      color: #c95a8c;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://encolombia.com/wp-content/uploads/2012/12/Salones-de-Belleza-en-Medell%C3%ADn.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero .btn {
+      margin-top: 20px;
+      background: #c95a8c;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    /* Sobre mí */
+    .sobre-mi {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 60px;
+    }
+
+    .sobre-mi img {
+      max-width: 300px;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .sobre-mi .texto {
+      flex: 1;
+    }
+
+    /* Galería */
+    .galeria {
+      margin-top: 60px;
+    }
+
+    .galeria .grid-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .galeria .grid-galeria img {
+      width: 100%;
+      height: 200px; /* Altura fija */
+      object-fit: cover; /* Recorta sin deformar */
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* Servicios */
+    .servicios {
+      margin-top: 60px;
+    }
+
+    .lista-fa {
+      list-style: none;
+      margin-top: 20px;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales */
+      gap: 15px 30px; /* espacio entre filas y columnas */
+    }
+
+    .lista-fa li {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 0; /* ya no hace falta */
+    }
+
+    .lista-fa li i {
+      color: #c95a8c;
+      margin-right: 10px;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* Turnos */
+    .turnos {
+      margin-top: 60px;
+    }
+
+    .turnos form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .turnos input,
+    .turnos textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .turnos .btn {
+      background: #c95a8c;
+      color: white;
+      padding: 12px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .turnos .btn:hover {
+      background-color: #a6446b;
+    }
+
+    /* Contacto */
+    .contacto {
+      margin-top: 60px;
+    }
+
+    .contacto p {
+      margin-top: 10px;
+    }
+
+    .contacto a {
+      color: #c95a8c;
+      text-decoration: none;
+    }
+
+    .contacto a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .footer {
+      background: #f1f1f1;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sobre-mi {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .lista-fa {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+      }
+    }
+
+    /* Contenido y texto */
+    .contenido {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contenido img {
+      max-width: 100%;
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .texto {
+      flex: 1;
+      text-align: justify;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .texto h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    /* Burbuja flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  font-size: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebe5b;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Maryoris Trilleras</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#turnos">Turnos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h2>Tu nueva versión comienza aquí</h2>
+      <p>Cortes, color y estilo con amor y dedicación</p>
+      <a href="#turnos" class="btn">Reservar turno</a>
+    </div>
+  </section>
+
+  <!-- Sobre mí -->
+  <section class="sobre-mi" id="sobre-mi">
+    <div class="container">
+      <div class="contenido">
+        <img src="https://artemasbelleza.com/images/servicios/maquillaje-social.jpeg" alt="Img_Mayolis"/>
+        <div class="texto">
+          <h3>Hola, soy Maryoris Trilleras | Estilista Profesional</h3>
+          <p>
+            Con más de 10 años de experiencia en el mundo de la belleza, me he dedicado a perfeccionar mi técnica y mantenerme actualizada con las últimas tendencias para ofrecer un servicio de alta calidad. Mi pasión es realzar la belleza natural de cada persona, resaltando lo mejor de ti con un estilo único y personalizado. 
+            Te invito a conocer algunos de mis trabajos, donde podrás ver el compromiso y detalle que pongo en cada uno de ellos. Si estás buscando una experiencia profesional, cálida y enfocada en ti, no dudes en reservar tu turno. ¡Será un gusto atenderte!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="galeria" id="galeria">
+    <div class="container">
+      <h2>Mis Trabajos</h2>
+      <div class="grid-galeria">
+        <img src="https://images.fresha.com/lead-images/placeholders/beauty-salon-34.jpg" alt="Trabajo 1"/>
+        <img src="https://dmimage.cl/wp-content/uploads/2021/01/Maquillaje.webp" alt="Trabajo 2"/>
+        <img src="https://www.materialestetica.com/blog/wp-content/uploads/2016/07/depilacion-bigote-cera-tradicional-o-caliente.jpg" alt="Trabajo 3"/>
+        <img src="https://th.bing.com/th/id/R.ea33ca10ee58aa0d66b381f928af1df0?rik=91fcCfj35S8pyQ&pid=ImgRaw&r=0" alt="Trabajo 4"/>
+        <img src="https://tse1.mm.bing.net/th/id/OIP.ANOwNSA9mgIfMJg8lXeThwHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Trabajo 5"/>
+        <img src="https://www.elcolectivo.com.ar/u/fotografias/m/2023/10/19/f1280x720-165598_297273_4756.jpg" alt="Trabajo 6"/>
+        <img src="https://clinicanea.cl/wp-content/uploads/2023/03/tratamientos-esteticos-para-rejuvenecer.jpg" alt="Trabajo 7"/>
+        <img src="https://tse1.mm.bing.net/th/id/OIP.M3Iz5omXJ_dtQ5LFirJGqQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Trabajo 8"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="servicios" id="servicios">
+    <div class="container">
+      <h2>Servicios</h2>
+      <ul class="lista-fa">
+        <li><i class="fas fa-cut"></i><strong>Corte + lavado:</strong> $50.000</li>
+        <li><i class="fas fa-palette"></i><strong>Color completo:</strong> $80.000</li>
+        <li><i class="fas fa-asterisk"></i><strong>Peinado para eventos:</strong> $60.000</li>
+        <li><i class="fas fa-spa"></i><strong>Tratamientos capilares:</strong> desde $40.000</li>
+        <!-- Si agregas más, seguirán en dos columnas -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- Turnos -->
+  <section class="turnos" id="turnos">
+    <div class="container">
+      <h2>Reservá tu turno</h2>
+      <form action="https://formspree.io/f/manpjpge" method="POST">
+  <input type="text" name="nombre" placeholder="Tu nombre" required />
+  <input type="email" name="email" placeholder="Tu email" required />
+  <input type="text" name="telefono" placeholder="Teléfono (opcional)" />
+  <textarea name="mensaje" placeholder="¿Qué servicio te interesa?" rows="4"></textarea>
+  <button type="submit" class="btn">Enviar</button>
+</form>
+
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contacto" id="contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/estilobysofi" target="_blank" rel="noopener noreferrer">@maryoristrilleras</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 maryoristrilleras - Todos los derechos reservados</p>
+    </div>
+  </footer>
+<!-- Burbuja flotante de WhatsApp -->
+<a href="https://bit.ly/3IVpWwd" 
+   class="whatsapp-float" target="_blank" aria-label="Chat en WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
